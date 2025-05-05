@@ -1,1 +1,3 @@
 # PLN-y-ML-para-priorizar-la-respuesta-de-correos-electronicos
+
+A continuación, se aplican técnicas de Procesamiento de Lenguaje Natural (PLN) y de Machine Learning (ML) para priorizar la respuesta de correos electrónicos en función de la relevancia y la urgencia contenida en el asunto y contenido de los mensajes. Para ello, se propone una solución con dos componentes principales: el primero consiste en clasificar los correos con la finalidad de predecir qué acción tomar, Responder, Borrar o Hilo, mientras que el segundo componente sugiere el orden para responder aquellos correos que resultaron en el primer grupo.

@@ -1,3 +1,14 @@
 # PLN-y-ML-para-priorizar-la-respuesta-de-correos-electronicos
 
 A continuación, se aplican técnicas de Procesamiento de Lenguaje Natural (PLN) y de Machine Learning (ML) para priorizar la respuesta de correos electrónicos en función de la relevancia y la urgencia contenida en el asunto y contenido de los mensajes. Para ello, se propone una solución con dos componentes principales: el primero consiste en clasificar los correos con la finalidad de predecir qué acción tomar, Responder, Borrar o Hilo, mientras que el segundo componente sugiere el orden para responder aquellos correos que resultaron en el primer grupo.
+
+En el reporte que se toma como referencia[^1] los autores proponen un clasificador de correos electrónicos priorizando la respuesta con base en el peso de los usuarios de correo electrónico, el cual se determina por el tiempo de interacción, la frecuencia de la interacciones y otras características. El clasificador crea una lista de usuarios prioritarios. Luego, el sistema sugiere un curso de acción para cada correo electrónico basándose en su contenido. El sistema utiliza dos modelos para identificar el tipo de respuesta:Term frequency-Inverse document frequency (Tf-Idf) y Doc2Vec. Los tipos de respuesta pueden ser *Responder*, *Borrar* o *Hilo*. De acuerdo a los autores, el sistema tiene en cuenta el corpus del asunto y el contenido del correo electrónico, así como si el mensaje es promocional o genérico y si se ha interactuado con él anteriormente,  para sugerir el tipo de respuesta de un determinado mensaje.
+
+En este trabajo se replicaron las ideas expuestas y el código publicado por los autores del reporte en su sitio de github[^2] pero usando el embedding GloVe. Además, se consideró que la inclusión del asunto y del contenido de cada correo electrónico en el GloVe era suficiente para alcanzar la clasificación en las tres categorías mencionadas. En contraste, los autores del reporte integran las fechas de los correos dentro de los modelos Tf-Idf y Doc2Vec.
+
+Finalmente, para abordar el problema del desequilibrio de clases presente en el conjunto de datos tanto del reporte como el de este estudio, se aplicó la técnica *Synthetic Minority Over-sampling Technique* (SMOTE). Cuando se tiene una muestra desbalanceada, los modelos pueden tener un rendimiento deficiente, especialmente los algoritmos de clasificación. Los resultados de la clasificación mejoraron después de aplicar esta técnica.
+
+Dado que nuestro objetivo era asignar etiquetas o categorías a datos no etiquetados a partir de la identificación de patrones, se propuso aplicar modelos de clasificación como máquinas de soporte vectorial (SVM, por sus siglas en inglés), regresión logística, random forest y AdaBoost.
+
+[^1]: https://github.com/shreyas-muralidhara/Enron-Email-Priority-Sorting-Response-Recommendation/blob/main/NLP_Final_Report.pdf
+[^2]: https://github.com/shreyas-muralidhara/Enron-Email-Priority-Sorting-Response-Recommendation
